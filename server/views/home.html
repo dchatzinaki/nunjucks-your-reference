@@ -1,28 +1,44 @@
 {% extends 'layout.html' %}
 
 {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
 
 {% block content %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "#"
+  }) }}
+   <h1 class="govuk-heading-xl">{{title}}</h1>
   <div class="govuk-body">
-    {{
-      govukDateInput({
-        id: "dob",
-        namePrefix: "dob",
-        fieldset: {
-          legend: {
-            text: "What is your date of birth?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--xl"
-          }
+      
+      {{ govukInput({
+        label: {
+          text: "Your Reference(optional)"
         },
+        classes: "govuk-!-width-two-thirds",
         hint: {
-          text: "For example, 31 3 1980"
-        }
-      })
-    }}
+          text: "Enter a reference to help you identify this catch certificate within the service. This reference is for your own use and will not appear on the final certificate. For example, you could choose a reference number from your organisation.",
+          classes: "govuk-!-width-two-thirds"
+        },
+        id: "event-name",
+        name: "event-name"
+      }) }}
 
+      {{ govukButton({
+        text: "Save as Draft",
+        classes: "govuk-button--secondary"
+      }) }}
 
-    <p>{{title}}</p>
-    <p>{{message}}</p>
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
   </div>
+  <hr class="help-link">
+  <h2 class="govuk-heading-l">Need Help?</h2>
+  <a class="govuk-link" href="#">Get help exporting fish from the UK (gov.uk)</a>
+
 {% endblock %}

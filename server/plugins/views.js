@@ -35,8 +35,8 @@ module.exports = {
     context: {
       appVersion: pkg.version,
       assetPath: '/assets',
-      serviceName: 'Service name',
-      pageTitle: 'Service name - GOV.UK',
+      serviceName: 'Create a UK catch certificate',
+      pageTitle: 'Create a UK catch certificate - GOV.UK',
       analyticsAccount: analyticsAccount
     }
   }

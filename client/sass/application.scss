@@ -1,3 +1,10 @@
 $govuk-global-styles: true;
 
 @import "node_modules/govuk-frontend/govuk/all";
+
+.help-link {
+    margin-top: 0.2em;
+    margin-bottom: 18px;
+    height: 1px;
+    background-color: #1d70b8;
+  }

@@ -5,7 +5,7 @@ module.exports = [{
   path: '/',
   handler: (request, h) => {
     return h.view('home', {
-      title: 'Hello',
+      title: 'Add your reference for this export',
       message: 'World'
     })
   }

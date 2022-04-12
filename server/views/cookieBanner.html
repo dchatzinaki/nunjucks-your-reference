@@ -1,0 +1,94 @@
+{% from "govuk/components/cookie-banner/macro.njk" import govukCookieBanner %}
+
+<div class="js-cookies-container">
+  <form method="POST" action="/cookies">
+
+    {% set html %}
+      <p>We use some essential cookies to make this service work.</p>
+      <p>We’d also like to use analytics cookies so we can understand how you use the service and make improvements.</p>
+    {% endset %}
+
+    {% set acceptHtml %}
+      <p>You’ve accepted analytics cookies. You can <a href="/cookies">change your cookie settings</a> at any time.</p>
+    {% endset %}
+
+    {% set rejectHtml %}
+      <p>You’ve rejected analytics cookies. You can <a href="/cookies">change your cookie settings</a> at any time.</p>
+    {% endset %}
+
+    {% if cookies == "accepted" or cookies =="rejected" %}
+      {% if cookies == "accepted" %}
+        {% set acceptedHidden = false %}
+        {% set rejectedHidden = true %}
+      {% elif cookies =="rejected" %}
+        {% set acceptedHidden = true %}
+        {% set rejectedHidden = false %}
+      {% endif %}
+
+      {{ govukCookieBanner({
+        ariaLabel: "Cookies on Fish exports service",
+        classes: "js-cookies-banner",
+        messages: [{
+            html: acceptHtml,
+            role: "alert",
+            hidden: acceptedHidden,
+            classes: "js-cookies-accepted",
+            actions: [
+              {
+                text: "Hide this message",
+                classes: "js-hide"
+              }
+            ]
+          },
+          {
+            html: rejectHtml,
+            role: "alert",
+            hidden: rejectedHidden,
+            classes: "js-cookies-rejected",
+            actions: [
+              {
+                text: "Hide this message",
+                classes: "js-hide"
+              }
+            ]
+          }
+        ]
+        })
+      }}
+    {% else %}
+
+      {{ govukCookieBanner({
+        ariaLabel: "Cookies on Fish exports service",
+        classes: "js-cookies-banner",
+        messages: [
+          {
+            headingText: "Cookies on Fish exports service",
+            html: html,
+            hidden: false,
+            classes: "js-question-banner",
+            actions: [
+              {
+                text: "Accept analytics cookies",
+                type: "submit",
+                name: "cookies",
+                value: "accept",
+                classes: "js-cookies-button-accept"
+              },
+              {
+                text: "Reject analytics cookies",
+                type: "submit",
+                name: "cookies",
+                value: "reject",
+                classes: "js-cookies-button-reject"
+              },
+              {
+                text: "View cookies",
+                href: "/cookies"
+              }
+            ]
+          }
+        ]
+      })}}
+    {%endif%}
+  </form>
+</div>

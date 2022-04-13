@@ -1,0 +1,155 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<title> title="Cookies - GOV.UK" </title>
+  <h1 class="govuk-heading-xl">Cookies Policy</h1>
+  <p class="govuk-body">
+    Cookies are small text files that are placed on your phone, tablet or
+    computer by websites that you visit. They are widely used in order to
+    make websites work, or work more efficiently, as well as to provide
+    information to the owners of the site.
+  </p>
+  <p class="govuk-body">
+    The Fish Exports service uses cookies to store information about how
+    you use our website, such as the pages you visit. The information
+    below explains the cookies we use and why; e.g. Cookie Preferences and
+    Google Analytics etc.
+  </p>
+  <br />
+  <h2 class="govuk-heading-m">Cookie Preferences</h2>
+  <p class="govuk-body">
+    This cookie is used to remember your choice about cookies. Where you
+    have previously indicated a preference, your preference will be stored
+    in this cookie.
+  </p>
+  <br />
+  <h2 class="govuk-heading-m">Google Analytics</h2>
+  <p class="govuk-body">
+    These cookies are used to collect information about how you use our
+    website. We use the information to compile reports and to help us
+    improve the website. The cookies collect information such as the
+    number of visitors to the website, where visitors have come to the
+    website from and the pages they visited. This information does not
+    identify anyone.
+  </p>
+  <p class="govuk-body">
+    We do not allow Google to use or share the data about how you use this
+    site.
+  </p>
+  <p class="govuk-body">
+    Google Analytics sets cookies that store anonymised information about:
+  </p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>how you got to the site</li>
+    <li>
+      the pages you visit on The Fish Exports services, and how long you
+      spend on each page
+    </li>
+    <li>
+      how many documents and/or certificates are created
+    </li>
+    <li>how you use the service so we can improve it</li>
+    <li>
+      how we measure the performance of the digital service and track user
+      journeys
+    </li>
+  </ul>
+  <br />
+  <p class="govuk-body">
+    Google is not allowed to use or share our analytics data, and you can
+    opt out of Google Analytics &nbsp;
+    <a
+      href="https://tools.google.com/dlpage/gaoptout"
+      rel="noopener noreferrer"
+    >
+      Here
+    </a>
+  </p>
+  <br />
+  <h2 class="govuk-heading-m">Introductory Cookie Message</h2>
+  <p class="govuk-body">
+    When you first use the service we show a ‘cookie message’. We then
+    store a cookie on your phone, tablet or computer so it knows not to
+    show this message again. This cookie will expire after one month,
+    which means you’ll be asked the same question after this time.
+  </p>
+  <br />
+  <h2 class="govuk-heading-m">Cookies that remember your settings</h2>
+  <p class="govuk-body">
+    These cookies remember your preferences and the choices you make, to
+    personalise your experience when using the site.
+  </p>
+  <br />
+  <h2 class="govuk-heading-m">Essential Cookies and Cookies you can choose</h2>
+  <p class="govuk-body">
+    Different types of cookies do different jobs on our website. Some are
+    needed to make the website work. We need your consent to use other
+    cookies that are not essential. You can change your choices at any
+    time. Just click the 'Cookies' link at the end of any page.
+  </p>
+  <br />
+  <h2 class="govuk-heading-m">Strictly Necessary Cookies</h2>
+  <p class="govuk-body">
+    These essential cookies remember your progress through a form, for
+    example a licence application, and always need to be on.
+  </p>
+  <p class="govuk-body">
+    If you are a customer, they help us know who you are so that you can
+    sign in and manage your account. They also help us keep your details
+    safe and private.
+  </p>
+  <p class="govuk-body">Other important jobs they do are:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>Help you move around the site</li>
+    <li>
+      Tell us if you’ve been to it before and which pages you went to
+    </li>
+    <li>
+      Tell us how the site is working, so that we can find and fix any
+      problems.
+    </li>
+  </ul>
+  <br />
+  <h2 class="govuk-heading-m">Functional Cookies</h2>
+  <p class="govuk-body">
+    These cookies always need to be on and are used for remembering things
+    like:
+  </p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>
+      Your username and password on the page where you sign in
+    </li>
+  </ul>
+  <br />
+  <h2 class="govuk-heading-m">Session cookie</h2>
+  <p class="govuk-body">
+    We store session cookies on your phone, tablet or computer to help
+    keep your information secure while you use the service. These cookies
+    are automatically removed after 15 minutes following no activity or
+    when you close your web browser.
+  </p>
+  <br />
+  <h2 class="govuk-heading-m">Change your cookie settings</h2>
+  <br />
+  <h4>
+    Do you want to accept the analytics cookies?
+  </h4>
+  <div id="radioButtons">
+      <input type="radio" value="yes" id="yes">
+      <label for="yes">Yes</label>
+      <br>
+      <input type="radio" value="no" id="no">
+      <label for="no">No</label>
+  </div>
+  <br>
+  <button
+    className="button"
+    type="button"
+    id="saveCookieSettings"
+    data-testid="saveCookieSettings"
+    onClick={saveCookieSetting}
+  >
+    Save cookie settings
+  </button>
+{% endblock %}

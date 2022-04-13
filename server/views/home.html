@@ -14,6 +14,8 @@
    <h1 class="govuk-heading-xl">{{title}}</h1>
   <div class="govuk-body">
       
+    <form method="post" action="/reference">
+
       {{ govukInput({
         label: {
           text: "Your Reference(optional)"
@@ -23,19 +25,20 @@
           text: "Enter a reference to help you identify this catch certificate within the service. This reference is for your own use and will not appear on the final certificate. For example, you could choose a reference number from your organisation.",
           classes: "govuk-!-width-two-thirds"
         },
-        id: "event-name",
-        name: "event-name"
+        id: "userReference",
+        name: "userReference"
       }) }}
 
-      {{ govukButton({
-        text: "Save as Draft",
-        classes: "govuk-button--secondary"
-      }) }}
 
-      {{ govukButton({
-        text: "Save and continue"
-      }) }}
-
+        {{ govukButton({
+          text: "Save as Draft",
+          classes: "govuk-button--secondary"
+        }) }}
+        
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+      </form>
   </div>
   
   {% include "needHelp.html" %}

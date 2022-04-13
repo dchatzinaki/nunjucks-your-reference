@@ -9,20 +9,14 @@ module.exports = [{
       message: 'World'
     })
   }
-}, {
+},  {
   method: 'POST',
-  path: '/',
+  path: '/reference',
   handler: (request, h) => {
+    console.log('this is the payload', request.payload);
     return h.view('home', {
-      title: 'Hello',
+      title: 'Add your reference for this export',
       message: 'World'
     })
-  },
-  options: {
-    validate: {
-      payload: joi.object().keys({
-        email: joi.string().email().required()
-      })
-    }
   }
 }]

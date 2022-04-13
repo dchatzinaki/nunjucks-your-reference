@@ -4,9 +4,22 @@
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 
 
 {% block content %}
+{% if errorMessage %}
+  {{ govukErrorSummary({
+    titleText: "There is a problem",
+    errorList: [
+      {
+        text: errorMessage.text,
+        href: "#userReference"
+      }
+    ]
+  }) }}
+  {% endif %}
+
   {{ govukBackLink({
     text: "Back",
     href: "#"
@@ -14,19 +27,20 @@
    <h1 class="govuk-heading-xl">{{title}}</h1>
   <div class="govuk-body">
       
-    <form method="post" action="/reference">
-
+    <form method="POST" action="/userRef">
       {{ govukInput({
         label: {
           text: "Your Reference(optional)"
         },
+        value: inputValue,
         classes: "govuk-!-width-two-thirds",
         hint: {
           text: "Enter a reference to help you identify this catch certificate within the service. This reference is for your own use and will not appear on the final certificate. For example, you could choose a reference number from your organisation.",
           classes: "govuk-!-width-two-thirds"
         },
         id: "userReference",
-        name: "userReference"
+        name: "userReference",
+        errorMessage: errorMessage
       }) }}
 
 

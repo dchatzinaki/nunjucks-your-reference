@@ -1,6 +1,7 @@
 $govuk-global-styles: true;
 
 @import "node_modules/govuk-frontend/govuk/all";
+@import "node_modules/hmrc-frontend/hmrc/all";
 
 .help-link {
     margin-top: 0.2em;
@@ -8,3 +9,6 @@ $govuk-global-styles: true;
     height: 1px;
     background-color: #1d70b8;
   }
+.hmrc-language-select {
+    padding-right: 15%;
+}

@@ -16,6 +16,7 @@
       <p>You’ve rejected analytics cookies. You can <a href="/cookie-policy">change your cookie settings</a> at any time.</p>
     {% endset %}
 
+    {% if not wholeViewHidden %}
     {% if not hidden %}
       {% if cookies == "accepted" or cookies =="rejected" %}
         {% if cookies == "accepted" %}
@@ -94,6 +95,7 @@
           ]
         })}}
       {%endif%}
+    {% endif %}
     {% endif %}
   </form>
 </div>

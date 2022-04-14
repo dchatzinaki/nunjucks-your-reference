@@ -4,15 +4,19 @@ const getErrorMessage = require("../helpers/lookupErrorText");
 module.exports = [{
   method: 'GET',
   path: '/',
-  handler:  (request, h) => {
+  handler: (request, h) => {
     let axiosConfig = {
       headers: {
         'Content-Type': 'application/json',
         'documentnumber': 'GBR-2022-CC-43F84CE64'
       }
     };
-    
-     return axios.get('http://localhost:5500/v1/userReference', axiosConfig)
+
+    if (request.state.session === 'cookieSaved') {
+      return h.view('home', { wholeViewHidden: true, title: 'Add your reference for this export' })
+    }
+
+    return axios.get('http://localhost:5500/v1/userReference', axiosConfig)
       .then((res) => {
         console.log("RESPONSE FROM GET: ", res.data);
         return h.view('home', {
@@ -23,7 +27,7 @@ module.exports = [{
       })
       .catch((err) => {
         console.log("AXIOS ERROR: ", err);
-      })    
+      })
   }
 }, {
   method: 'POST',
